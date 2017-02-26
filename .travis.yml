@@ -3,7 +3,8 @@ jdk:
   - oraclejdk8
 deploy:
   provider: releases
-  api_key: "5752d5e04235ab854600399808bfc5b4e079452f"
+  api_key:
+    secure: fc78aabdbbfc4ddcefe3e07b8e8c44968a777362
   file: "resturant 0.0.1-SNAPSHOT.jar"
   skip_cleanup: true
   on:
