@@ -1,11 +1,10 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 deploy:
   provider: releases
   api_key:
-    secure: fc78aabdbbfc4ddcefe3e07b8e8c44968a777362
-  file: "resturant 0.0.1-SNAPSHOT.jar"
-  skip_cleanup: true
+    secure: C+1cO8Ws5oR6jb7z+jBGq6lX8Dtpd50jwFdAiohjWBdOjy1pmPSLl/buk+l/9jcRPmbFQ85mGFSIGgrf4ofwNhk7vigtCOuDfntdPro42uNVe+j6ABfPaJ1ybbgEV9P9jc6N2tr+dDk5wXSphtGF1WexkjaZWb5ImyOSIRqtf7G4YFZikYRyamZ2D4ExZ0hQQLvTxtZoeqGaDxYoA3dTk2+j9yi80JHnOj+eupKw7xn9qW/EiGfeJXUBjWMMrOpw47Ib4V+wccN/bZ2Qx92LgKpkBubkZxc8ECQRL66yA0u0sGzMkWa8D24h6YuLw494NLN3PeCDmhX/Kll7tPTSJbxg8D/mASWzDtK8W5s9e17OKot8MZFrT36GGozdOoPwnF7EAVhmFciSot5TT1zBvjs+WSlBt7YH0LTyUEa3DZimSFBe3RwzGNCevrr8rh+36kW7sb5RtLOJg7hxjEXXMBca14lgg7/r6aNzIkXtu3vXthlT4unn/m5WXsiB2/JYCTYCcwYjSGPZBnDuD0peC1UdfxqKkofHg8+3iBdtM/hcg6xIm3tM/qInpCwQCo65f241+zZ1W65+aEZSy0Irflo4KqfpLlbREuiD15TZx7VMeJubNJr/mS1k2FejOKY96wKWUQG9IbLJmvKNs+tJJBGJncZU9q6EIJ9eMhUB6i0=
+  file: resturant-0.0.1-SNAPSHOT.jar
   on:
-    tags: true
+    repo: kurvatch/resturant
