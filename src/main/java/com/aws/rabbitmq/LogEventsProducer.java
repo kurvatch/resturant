@@ -4,8 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
@@ -17,7 +17,7 @@ public class LogEventsProducer {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(LogEventsProducer.class);
 	
-    final static String queueName = "spring-boot";
+    final static String queueName = "kurvatch_queue";
 
 	@Bean
 	Queue queue() {
@@ -25,18 +25,19 @@ public class LogEventsProducer {
 	}
 
 	@Bean
-	TopicExchange exchange() {
-		return new TopicExchange("spring-boot-exchange");
+	DirectExchange exchange() {
+		return new DirectExchange("kurvatch");
 	}
 
 	@Bean
-	Binding binding(Queue queue, TopicExchange exchange) {
+	Binding binding(Queue queue, DirectExchange exchange) {
 		return BindingBuilder.bind(queue).to(exchange).with(queueName);
 	}
 
 	@Bean
 	SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
 			MessageListenerAdapter listenerAdapter) {
+		LOGGER.info("*****Binding container******");
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
 		container.setQueueNames(queueName);
